@@ -1,1 +1,529 @@
-"Hello World" 
+<div dir="ltr" style="text-align: left;" trbidi="on">
+
+
+    <br />
+    <br />
+    <div dir="ltr" style="text-align: left;" trbidi="on">
+        <div dir="ltr" style="text-align: left;" trbidi="on">
+            <style>
+                #qBlock {
+                    font-size: 17px;
+                    font-family: "Verdana";
+                    margin-left: 10px;
+                    margin-right: auto;
+                    width: 100%;
+                }
+                
+                #score {
+                    font-size: 20px;
+                }
+                
+                input[type="button"] {
+                    width: 200px;
+                    height: 40px;
+                }
+            </style>
+            <script language="javascript">
+                qCountwc = 1;
+                scorewc = 0;
+                var qCountwc = parseInt(sessionStorage.getItem("qCountwc"));
+                var scorewc = parseInt(sessionStorage.getItem("scorewc"));
+
+
+                if (qCountwc == null) {
+                    qCountwc = 1;
+                }
+                if (scorewc == null) {
+                    scorewc = 0;
+                }
+
+
+                if (isNaN(qCountwc)) {
+                    qCountwc = 1;
+                }
+
+                if (isNaN(scorewc)) {
+                    scorewc = 0;
+                }
+
+                var q1 = new Array("If we add Enum constants to a sorted collection ( Treemap , TreeSet ), What will be the order in which they will be maintained ?", "Sorted Collection wont maintain them in any order.", "Insertion Order", "Order in which constants are declared.", "Natural Sorting Order.", 3, "");
+                var q2 = new Array("Enums are intrinsically ..", "public", "private", "protected", "static", 4, "");
+                var q3 = new Array("Enums cannot be declared ..", "public", "private", "static", "final", 4, "");
+                var q4 = new Array("When were enums intrduced in Java ?", "Java 3", "Java 5", "Java 7", "Java 8", 2, "");
+                var q5 = new Array("Can Enum implement an interface ?", "Yes", "No", "N/A", "N/A", 1, "");
+                var q6 = new Array("Can Enum extend a Class ?", "Yes", "No", "N/A", "N/A", 2, "");
+                var q7 = new Array("Can we override toString() method for Enum ?", "Yes", "No", "N/A", "N/A", 1, "");
+                var q8 = new Array("Elements of an enum are .. ", "String Constants", "Integer Constants", "Pre Initialized Objects", "String Variables", 3, "");
+                var q9 = new Array("Which of the following is false ?", "Enums are intrinsically static", "Enums are intrinsically final", "You can create instance of enums by using new operator", "Enum can be safely compare using “==” equality operator", 3, "");
+                var q10 = new Array("enum constructors can .. ", "be invoked directly in code", "cannot have arguments", "can be overloaded", "be declared after other fields of the enum class", 3, "");
+
+
+                function verify() {
+                    var correctAnswer = 0;
+                    var entAns = -1;
+                    var answerEnt = 1;
+
+
+                    switch (qCountwc) {
+                        case 1:
+                            correctAnswer = q1[5];
+                            break;
+                        case 2:
+                            correctAnswer = q2[5];
+                            break;
+                        case 3:
+                            correctAnswer = q3[5];
+                            break;
+                        case 4:
+                            correctAnswer = q4[5];
+                            break;
+                        case 5:
+                            correctAnswer = q5[5];
+                            break;
+                        case 6:
+                            correctAnswer = q6[5];
+                            break;
+                        case 7:
+                            correctAnswer = q7[5];
+                            break;
+                        case 8:
+                            correctAnswer = q8[5];
+                            break;
+                        case 9:
+                            correctAnswer = q9[5];
+                            break;
+                        case 10:
+                            correctAnswer = q10[5];
+                            break;
+
+
+                    }
+
+                    if (document.getElementById('opt1').checked) {
+                        entAns = document.getElementById('opt1').value;
+                    } else if (document.getElementById('opt2').checked) {
+                        entAns = document.getElementById('opt2').value;
+                    } else if (document.getElementById('opt3').checked) {
+                        entAns = document.getElementById('opt3').value;
+                    } else if (document.getElementById('opt4').checked) {
+                        entAns = document.getElementById('opt4').value;
+                    } else {
+                        alert("Please enter your answer");
+                        answerEnt = 0;
+
+                    }
+
+                    if (answerEnt == 1) {
+                        if (entAns == correctAnswer) {
+
+                            sessionStorage.setItem("scorewc", (scorewc + 1));
+
+                            sessionStorage.setItem("ques" + qCountwc, "correct");
+
+                        } else {
+                            sessionStorage.setItem("ques" + qCountwc, "incorrect");
+
+                        }
+                        sessionStorage.setItem("qCountwc", (qCountwc + 1));
+
+                    }
+
+                    if (qCountwc == 10) {
+                        var scoreP = eval(sessionStorage.getItem("scorewc") * 10);
+                        var html = "<table width='100%'> <
+                            tr > < td > You Gave " + sessionStorage.getItem("
+                        scorewc ") + "
+                        correct answers < /td><td>          Score - " + scoreP + "%<br></tr >
+                            <
+                            /table>
+                        ";
+                        if (sessionStorage.getItem("ques1") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+                        html += "<br>Q." + q1[0];
+                        html += "<br>Correct Answer." + q1[q1[5]];
+                        html += "<br>";
+
+
+                        if (sessionStorage.getItem("ques1") == "incorrect") {
+                            html += "</font>";
+                        }
+                        if (sessionStorage.getItem("ques2") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+                        html += "<br>Q." + q2[0];
+                        html += "<br>Correct Answer." + q2[q2[5]];
+                        html += "<br>";
+
+
+                        if (sessionStorage.getItem("ques2") == "incorrect") {
+                            html += "</font>";
+                        }
+                        if (sessionStorage.getItem("ques3") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+                        html += "<br>Q." + q3[0];
+                        html += "<br>Correct Answer." + q3[q3[5]];
+                        html += "<br>";
+
+                        if (sessionStorage.getItem("ques3") == "incorrect") {
+                            html += "</font>";
+                        }
+                        if (sessionStorage.getItem("ques4") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+                        html += "<br>Q." + q4[0];
+                        html += "<br>Correct Answer." + q4[q4[5]];
+                        html += "<br>";
+
+                        if (sessionStorage.getItem("ques4") == "incorrect") {
+                            html += "</font>";
+                        }
+                        if (sessionStorage.getItem("ques5") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+                        html += "<br>Q." + q5[0];
+                        html += "<br>Correct Answer." + q5[q5[5]];
+                        html += "<br>";
+
+                        if (sessionStorage.getItem("ques5") == "incorrect") {
+                            html += "</font>";
+                        }
+                        if (sessionStorage.getItem("ques6") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+                        html += "<br>Q." + q6[0];
+                        html += "<br>Correct Answer." + q6[q6[5]];
+                        html += "<br>";
+                        if (sessionStorage.getItem("ques6") == "incorrect") {
+                            html += "</font>";
+                        }
+                        if (sessionStorage.getItem("ques7") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+                        html += "<br>Q." + q7[0];
+                        html += "<br>Correct Answer." + q7[q7[5]];
+                        html += "<br>";
+
+                        if (sessionStorage.getItem("ques7") == "incorrect") {
+                            html += "</font>";
+                        }
+                        if (sessionStorage.getItem("ques8") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+                        html += "<br>Q." + q8[0];
+                        html += "<br>Correct Answer." + q8[q8[5]];
+                        html += "<br>";
+                        if (sessionStorage.getItem("ques8") == "incorrect") {
+                            html += "</font>";
+                        }
+                        if (sessionStorage.getItem("ques9") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+
+                        html += "<br>Q." + q9[0];
+                        html += "<br>Correct Answer." + q9[q9[5]];
+                        html += "<br>";
+
+                        if (sessionStorage.getItem("ques9") == "incorrect") {
+                            html += "</font>";
+                        }
+                        if (sessionStorage.getItem("ques10") == "incorrect") {
+                            html += "<font color='red'>";
+                        }
+                        html += "<br>Q." + q10[0];
+                        html += "<br>Correct Answer." + q10[q10[5]];
+                        html += "<br>";
+                        if (sessionStorage.getItem("ques10") == "incorrect") {
+                            html += "</font>";
+                        }
+
+                        document.getElementById("qBlock").innerHTML = html;
+
+                        localStorage.setItem("scorewc57", (sessionStorage.getItem("scorewc")));
+                        sessionStorage.setItem("qCountwc", (1));
+                        sessionStorage.setItem("scorewc", (0));
+
+                    } else {
+
+                        location.reload();
+                    }
+
+
+
+                }
+            </script>
+
+            <br />
+            <br />
+            <div id="qBlock">
+                <form>
+                    Q
+
+                    <script language="javascript">
+                        document.write(qCountwc);
+                    </script>
+                    .
+                    <script language="javascript">
+                        switch (qCountwc) {
+                            case 1:
+                                document.write(q1[0]);
+                                break;
+                            case 2:
+                                document.write(q2[0]);
+                                break;
+                            case 3:
+                                document.write(q3[0]);
+                                break;
+                            case 4:
+                                document.write(q4[0]);
+                                break;
+                            case 5:
+                                document.write(q5[0]);
+                                break;
+                            case 6:
+                                document.write(q6[0]);
+                                break;
+                            case 7:
+                                document.write(q7[0]);
+                                break;
+                            case 8:
+                                document.write(q8[0]);
+                                break;
+                            case 9:
+                                document.write(q9[0]);
+                                break;
+                            case 10:
+                                document.write(q10[0]);
+                                break;
+                            default:
+                                document.write(q1[0]);
+                        }
+                    </script>
+
+                    .
+
+
+                    <br />
+                    <br />
+                    <input id="opt1" name="q1" type="radio" value="1" />
+                    <script language="javascript">
+                        switch (qCountwc) {
+                            case 1:
+                                document.write(q1[1]);
+                                break;
+                            case 2:
+                                document.write(q2[1]);
+                                break;
+                            case 3:
+                                document.write(q3[1]);
+                                break;
+                            case 4:
+                                document.write(q4[1]);
+                                break;
+                            case 5:
+                                document.write(q5[1]);
+                                break;
+                            case 6:
+                                document.write(q6[1]);
+                                break;
+                            case 7:
+                                document.write(q7[1]);
+                                break;
+                            case 8:
+                                document.write(q8[1]);
+                                break;
+                            case 9:
+                                document.write(q9[1]);
+                                break;
+                            case 10:
+                                document.write(q10[1]);
+                                break;
+                            default:
+                                document.write(q1[1]);
+                        }
+                    </script>
+
+                    <input id="opt2" name="q1" type="radio" value="2" />
+                    <script language="javascript">
+                        switch (qCountwc) {
+                            case 1:
+                                document.write(q1[2]);
+                                break;
+                            case 2:
+                                document.write(q2[2]);
+                                break;
+                            case 3:
+                                document.write(q3[2]);
+                                break;
+                            case 4:
+                                document.write(q4[2]);
+                                break;
+                            case 5:
+                                document.write(q5[2]);
+                                break;
+                            case 6:
+                                document.write(q6[2]);
+                                break;
+                            case 7:
+                                document.write(q7[2]);
+                                break;
+                            case 8:
+                                document.write(q8[2]);
+                                break;
+                            case 9:
+                                document.write(q9[2]);
+                                break;
+                            case 10:
+                                document.write(q10[2]);
+                                break;
+                            default:
+                                document.write(q1[2]);
+                        }
+                    </script>
+
+                    <br />
+                    <input id="opt3" name="q1" type="radio" value="3" />
+                    <script language="javascript">
+                        switch (qCountwc) {
+                            case 1:
+                                document.write(q1[3]);
+                                break;
+                            case 2:
+                                document.write(q2[3]);
+                                break;
+                            case 3:
+                                document.write(q3[3]);
+                                break;
+                            case 4:
+                                document.write(q4[3]);
+                                break;
+                            case 5:
+                                document.write(q5[3]);
+                                break;
+                            case 6:
+                                document.write(q6[3]);
+                                break;
+                            case 7:
+                                document.write(q7[3]);
+                                break;
+                            case 8:
+                                document.write(q8[3]);
+                                break;
+                            case 9:
+                                document.write(q9[3]);
+                                break;
+                            case 10:
+                                document.write(q10[3]);
+                                break;
+                            default:
+                                document.write(q1[3]);
+                        }
+                    </script>
+
+                    <br />
+                    <input id="opt4" name="q1" type="radio" value="4" />
+                    <script language="javascript">
+                        switch (qCountwc) {
+                            case 1:
+                                document.write(q1[4]);
+                                break;
+                            case 2:
+                                document.write(q2[4]);
+                                break;
+                            case 3:
+                                document.write(q3[4]);
+                                break;
+                            case 4:
+                                document.write(q4[4]);
+                                break;
+                            case 5:
+                                document.write(q5[4]);
+                                break;
+                            case 6:
+                                document.write(q6[4]);
+                                break;
+                            case 7:
+                                document.write(q7[4]);
+                                break;
+                            case 8:
+                                document.write(q8[4]);
+                                break;
+                            case 9:
+                                document.write(q9[4]);
+                                break;
+                            case 10:
+                                document.write(q10[4]);
+                                break;
+                            default:
+                                document.write(q1[4]);
+                        }
+                    </script>
+
+
+                    <br />
+                    <br />
+                    <input name="Submit" onclick="javascript:verify()" type="button" value="Submit" />
+
+                    <br />
+                    <table style="width: 100%;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div id="score">
+                                        <script language="javascript">
+                                            document.write(scorewc);
+                                        </script>
+
+                                        Out of
+
+                                        <script language="javascript">
+                                            document.write(qCountwc - 1);
+                                        </script>
+
+                                        correct.
+                                    </div>
+                                </td>
+                                <td>
+                                    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+                                    <script type="text/javascript">
+                                        google.load('visualization', '1', {
+                                            packages: ['gauge']
+                                        });
+                                        google.setOnLoadCallback(drawChart);
+
+                                        function drawChart() {
+                                            var data = google.visualization.arrayToDataTable([
+                                                ['Label', 'Value'],
+                                                ['Score', scorewc * 10]
+                                            ]);
+
+                                            var options = {
+                                                width: 400,
+                                                height: 120,
+                                                redFrom: 0,
+                                                redTo: 50,
+                                                yellowFrom: 50,
+                                                yellowTo: 70,
+                                                minorTicks: 1
+                                            };
+
+                                            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+                                            chart.draw(data, options);
+                                        }
+                                    </script>
+
+                                    <br />
+                                    <div id="chart_div">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br /></form>
+            </div>
+        </div>
+        <br />
+        <br />
+        <a href="http://www.buggybread.com/2013/09/java-online-practice-tests.html">Online Test Home Page</a></div>
+</div>
